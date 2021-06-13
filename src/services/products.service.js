@@ -3,7 +3,7 @@ import db from '../database/models';
 const productAssociations = {
   include: [
     { association: 'category', attributes: ['id', 'name'] },
-    { association: 'sizes', attributes: ['quantity'], include: [{ association: 'size', attributes: ['number', 'country'] }] },
+    { association: 'sizes', attributes: ['quantity', 'sizeId'], include: [{ association: 'size', attributes: ['number', 'country'] }] },
   ]
 };
 

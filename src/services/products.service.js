@@ -1,7 +1,20 @@
 import db from '../database/models';
 
+const productAssociations = {
+  include: [
+    { association: 'category', attributes: ['id', 'name'] },
+    { association: 'sizes', attributes: ['quantity'], include: [{ association: 'size', attributes: ['number', 'country'] }] },
+  ]
+};
+
 export const findOneProduct = (query, scope = null) => db.products.scope(scope)
-  .findOne(query).then(product => product);
+  .findOne({
+    ...query,
+    ...productAssociations,
+  }).then(product => product);
 
 export const findAllProducts = (query, scope = null) => db.products.scope(scope)
-  .findAll(query).then(products => products);
+  .findAll({
+    ...query,
+    ...productAssociations,
+  }).then(products => products);

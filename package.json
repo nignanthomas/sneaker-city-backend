@@ -8,17 +8,18 @@
   "license": "MIT",
   "scripts": {
     "dev": "NODE_ENV=development babel-watch src/index.js",
-    "production": "npm run db:migrate && NODE_ENV=production babel src --out-dir build --copy-files && node build/index.js",
+    "production": "yarn db:migrate && NODE_ENV=production babel src --out-dir build --copy-files && node build/index.js",
     "db:refresh": "NODE_ENV=production sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all",
     "db:seed": "NODE_ENV=production sequelize db:seed:all",
     "db:migrate": "NODE_ENV=production sequelize db:migrate",
     "migrate": "NODE_ENV=test sequelize db:migrate",
     "rollback": "NODE_ENV=test sequelize db:migrate:undo:all",
     "seed": "NODE_ENV=test sequelize db:seed:all",
-    "test": "npm run rollback && npm run migrate && npm run seed &&  npm run test-suite",
+    "test": "yarn rollback && yarn migrate && yarn seed &&  yarn test-suite",
     "test-suite": "NODE_ENV=test mocha src/tests/index.spec.js --require @babel/register --timeout 20000 --exit"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
     "@babel/plugin-transform-runtime": "^7.14.5",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",

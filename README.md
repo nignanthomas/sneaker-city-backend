@@ -1,7 +1,7 @@
-Sneaker City
-=======
+# Sneaker City
 
 ## Vision :telescope:
+
 Sneaker City is a brand new online-only store for sneaker enthusiasts. This isn’t your average e-commerce shop – it’s a curatedexperience that shows just the latest in sneaker trends.
 
 ---
@@ -10,37 +10,65 @@ Sneaker City is a brand new online-only store for sneaker enthusiasts. This isn�
 
 1. Clone the repo.
 
-2. Refer to ` .env.example ` to configure your environment as follows:
+2. Refer to `.env.example` to configure your environment as follows:
 
-3. Run the command ` yarn dev ` to spin up the server.
+3. Run the command `yarn dev` to spin up the server.
 
-4. Access ` http://localhost:<:APPLICATION_PORT> ` in Postman, if docker is running correctly, you will be returned with a message:
+4. Access `http://localhost:<:APPLICATION_PORT>` in Postman, if docker is running correctly, you will be returned with a message:
 
-    ```javascript
-   { 
-      "status": 200,
-      "message": "Welcome to Sneaker City!"
-   }
-    ```
+```javascript
+{
+  "status": 200,
+  "message": "Welcome to Sneaker City!"
+}
+```
 
-5. Ensure you have Postgres running 
+5. Ensure you have Postgres running
 
-  _**Note:** Your Postgres Database will run on port ` <:DATABASE_PORT> `. If you're using PgAdmin or Postico ensure you create a database on the server ` localhost:<:DATABASE_PORT> ` 
+\_**Note:** Your Postgres Database will run on port `<:DATABASE_PORT>`. If you're using PgAdmin or Postico ensure you create a database on the server `localhost:<:DATABASE_PORT>`
 
-6. When the server is running, create a database on your new PG server. Ensure your new development database is the same name as your ` DEVELOPMENT_DB `  and your test database is the same name as ` TEST_DB  ` environment variables
+6. When the server is running, create a database on your new PG server. Ensure your new development database is the same name as your `DATABASE_URL` and your test database is the same name as `TEST_DB ` environment variables
 
-7. Run the command ` sequelize db:migrate:all `
+7. Run the command `sequelize db:refresh` to migrate and seed your database.
 
-8. Run the command sequelize ` db:seed:all `
-
-9. Check your database to ensure proper functionality and correctness. 
+8. Check your database to ensure proper functionality and correctness.
 
 ## API Endpoints :droplet:
 
+### Users
+
+| Method |     Endpoint      | Description |
+| ------ | :---------------: | ----------: |
+| POST   | /api/users/signup |      Signup |
+| POST   | /api/users/login  |       Login |
+
+### Products
+
+| Method |         Endpoint         |     Description |
+| ------ | :----------------------: | --------------: |
+| GET    |      /api/products       |    All Products |
+| GET    | /api/products/:productId |  Single Product |
+| GET    |   /api/products/latest   | Latest Products |
+
+### Orders
+
+| Method |       Endpoint       |  Description |
+| ------ | :------------------: | -----------: |
+| GET    |     /api/orders      |   All Orders |
+| GET    | /api/orders/:orderId | Single Order |
+| POST   |     /api/orders      | Create Order |
+
+### Sizes
+
+| Method |  Endpoint  | Description |
+| ------ | :--------: | ----------: |
+| GET    | /api/sizes |   All Sizes |
 
 # Bugs :bug:
+
 No known bugs.
 If you spot one, let us know
 
 # Author :computer:
-[Thomas Nignan](https://nignanthomas.github.io) for Bank of Kigali Rwanda
+
+[Thomas Nignan](https://nignanthomas.github.io) for Bank of Kigali, Rwanda.

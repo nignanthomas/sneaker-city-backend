@@ -38,11 +38,11 @@ http.listen(port, () => console.log(`Sneaker City is running server on port ${po
 
 app.use('/api/', allRoutes);
 
-app.get('/', (req, res) => {
+app.get('/', (req, res, next) => {
   res.status(200).json({ message: 'Welcome to Sneaker City!' })
 });
 
-app.use('*', (req, res) => {
+app.use('*', (req, res, next) => {
   res.status(404).json({
     status: 404,
     message: 'Sorry this route does not exist !',

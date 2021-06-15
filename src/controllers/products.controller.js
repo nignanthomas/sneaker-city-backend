@@ -23,8 +23,9 @@ export const latestProducts = async (req, res, next) => {
 
 export const productById = async (req, res, next) => {
   try {
+    const { productId } = req.params;
     const product = await findOneProduct({
-      where: { id: parseInt(req.params.productId) }
+      where: { id: parseInt(productId) }
     });
     return res.status(200).json({ data: product });
   } catch (error) {

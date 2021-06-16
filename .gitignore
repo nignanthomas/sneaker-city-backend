@@ -101,7 +101,7 @@ typings/
 pgdata
 
 # Build files
-build
+# build
 dist
 lib
 # VSCode

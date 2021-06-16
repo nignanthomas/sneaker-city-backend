@@ -1,4 +1,5 @@
 # Sneaker City
+
 Live API: https://sneaker-city-backend.herokuapp.com/
 
 ## Vision :telescope:
@@ -62,6 +63,15 @@ Sneaker City is a brand new online-only store for sneaker enthusiasts. This isnâ
 | Method |  Endpoint  | Description |
 | ------ | :--------: | ----------: |
 | GET    | /api/sizes |   All Sizes |
+
+# Technologies Used :gear:
+
+```
+Node JS
+Express
+Postgresql
+Mocha/Chai
+```
 
 # Bugs :bug:
 

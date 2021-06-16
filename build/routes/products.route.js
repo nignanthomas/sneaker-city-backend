@@ -15,5 +15,6 @@ var router = new _express["default"]();
 router.get('/', _products.allProducts);
 router.get('/latest', _products.latestProducts);
 router.get('/:productId', _products.productById);
+router.get('/category/:categoryId', _products.productsByCategory);
 var _default = router;
 exports["default"] = _default;

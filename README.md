@@ -14,7 +14,7 @@ Sneaker City is a brand new online-only store for sneaker enthusiasts. This isnâ
 
 2. Refer to `.env.example` to configure your environment as follows.
 
-3. Run the command `yarn dev` to spin up the server.
+3. Run the command `yarn install && yarn dev` to spin up the server.
 
 4. Access `http://localhost:<:APPLICATION_PORT>` in Postman.
 

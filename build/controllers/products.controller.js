@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.productById = exports.latestProducts = exports.allProducts = void 0;
+exports.productsByCategory = exports.productById = exports.latestProducts = exports.allProducts = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -137,3 +137,47 @@ var productById = /*#__PURE__*/function () {
 }();
 
 exports.productById = productById;
+
+var productsByCategory = /*#__PURE__*/function () {
+  var _ref4 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(req, res, next) {
+    var categoryId, products;
+    return _regenerator["default"].wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.prev = 0;
+            categoryId = req.params.categoryId;
+            _context4.next = 4;
+            return (0, _products.findAllProducts)({
+              where: {
+                categoryId: parseInt(categoryId)
+              }
+            });
+
+          case 4:
+            products = _context4.sent;
+            return _context4.abrupt("return", res.status(200).json({
+              data: products
+            }));
+
+          case 8:
+            _context4.prev = 8;
+            _context4.t0 = _context4["catch"](0);
+            return _context4.abrupt("return", res.status(500).json({
+              error: _context4.t0.message
+            }));
+
+          case 11:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4, null, [[0, 8]]);
+  }));
+
+  return function productsByCategory(_x10, _x11, _x12) {
+    return _ref4.apply(this, arguments);
+  };
+}();
+
+exports.productsByCategory = productsByCategory;

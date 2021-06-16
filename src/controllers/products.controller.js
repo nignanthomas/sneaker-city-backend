@@ -32,3 +32,15 @@ export const productById = async (req, res, next) => {
     return res.status(500).json({ error: error.message });
   }
 };
+
+export const productsByCategory = async (req, res, next) => {
+  try {
+    const { categoryId } = req.params;
+    const products = await findAllProducts({
+      where: { categoryId: parseInt(categoryId) }
+    });
+    return res.status(200).json({ data: products });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};

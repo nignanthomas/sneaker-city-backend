@@ -16,7 +16,7 @@
     "rollback": "NODE_ENV=test sequelize db:migrate:undo:all",
     "seed": "NODE_ENV=test sequelize db:seed:all",
     "test": "yarn rollback && yarn migrate && yarn seed &&  yarn test-suite",
-    "test-suite": "NODE_ENV=test mocha src/tests/index.spec.js --require @babel/register --timeout 20000 --exit"
+    "test-suite": "NODE_ENV=test mocha src/tests/index.spec.js --require @babel/register --exit"
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.14.5",
